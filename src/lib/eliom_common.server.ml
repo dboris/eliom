@@ -181,7 +181,7 @@ type one_persistent_cookie_info =
 (*VVV heavy *)
 type 'a cookie_info1 =
   (* service sessions: *)
-  (string option            (* value sent by the browser *)
+  (int option            (* hash of value sent by the browser *)
    (* None = new cookie
       (not sent by the browser) *)
    *
@@ -197,7 +197,7 @@ type 'a cookie_info1 =
     Full_state_name_table.t ref (* The key is the full session name *) *
 
   (* in memory data sessions: *)
-  (string option            (* value sent by the browser *)
+  (int option            (* hash of value sent by the browser *)
    (* None = new cookie
       (not sent by the browser) *)
    *
@@ -214,7 +214,7 @@ type 'a cookie_info1 =
     Full_state_name_table.t ref (* The key is the full session name *) *
 
   (* persistent sessions: *)
-  ((string                  (* value sent by the browser *) *
+  ((int                     (* hash of value sent by the browser *) *
     timeout                 (* timeout at the beginning of the request *) *
     float option            (* (server side) expdate
                                at the beginning of the request

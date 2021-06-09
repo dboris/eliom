@@ -350,11 +350,11 @@ type one_persistent_cookie_info = {
 }
 
 type 'a cookie_info1 =
-    (string option * 'a one_service_cookie_info session_cookie ref)
+    (int option * 'a one_service_cookie_info session_cookie ref)
     Full_state_name_table.t ref *
-    (string option * one_data_cookie_info session_cookie ref) Lazy.t
+    (int option * one_data_cookie_info session_cookie ref) Lazy.t
     Full_state_name_table.t ref *
-    ((string * timeout * float option *
+    ((int * timeout * float option *
       perssessgrp option)
      option * one_persistent_cookie_info session_cookie ref)
     Lwt.t Lazy.t Full_state_name_table.t ref

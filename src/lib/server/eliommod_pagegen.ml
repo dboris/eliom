@@ -149,15 +149,16 @@ let update_cookie_table ?now sitedata (ci, sci) =
                     | Eliom_common.TNone -> None
                     | Eliom_common.TSome t -> Some (t +. now)
                 in
+                let hnewv = Hashtbl.hash newc.Eliom_common.pc_value in
                 match oldvalue with
                   | Some (oldv, oldti, oldexp, oldgrp) when
                       (oldexp = newexp &&
                           oldti = !(newc.Eliom_common.pc_timeout) &&
                           oldgrp = !(newc.Eliom_common.pc_session_group) &&
-                       oldv = newc.Eliom_common.pc_value) -> Lwt.return ()
+                            oldv = hnewv) -> Lwt.return ()
                 (* nothing to do *)
                   | Some (oldv, oldti, oldexp, oldgrp) when
-                      oldv = newc.Eliom_common.pc_value ->
+                      oldv = hnewv ->
                     Lwt.catch
                       (fun () ->
                         Eliom_common.Persistent_cookies.replace_if_exists
