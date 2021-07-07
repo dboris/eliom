@@ -8,7 +8,7 @@
   (preprocess (pps lwt_ppx js_of_ocaml-ppx js_of_ocaml-ppx_deriving_json))
   (libraries ocsigenserver.cookies ocsigenserver.polytables js_of_ocaml
              js_of_ocaml-tyxml js_of_ocaml-lwt js_of_ocaml-lwt.logger
-             lwt_react ocsigenserver.baselib.base
+             lwt_react ocsigenserver.baselib.base tyxml
              reactiveData)
   (js_of_ocaml (javascript_files eliom_client.js)))
 
