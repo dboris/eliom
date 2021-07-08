@@ -6,7 +6,8 @@
    eliom_parameter_sigs eliom_registration_sigs eliom_service_sigs
    eliom_shared_sigs)
   (preprocess (pps lwt_ppx js_of_ocaml-ppx_deriving_json))
-  (libraries lwt_react ocsigenserver ocsigenserver.ext js_of_ocaml tyxml))
+  (flags (:standard (:include type_includes)))
+  (libraries lwt_react ocsigenserver ocsigenserver.ext tyxml))
 
 (include dune.server)
 
@@ -14,6 +15,11 @@
   (action
     (with-stdout-to %{target}
       (system "ocamlfind query -r -i-format lwt_react,ocsigenserver,ocsigenserver.ext,js_of_ocaml,tyxml | tr ' ' '\n'"))))
+
+(rule (target type_includes)
+  (action
+    (with-stdout-to %{target}
+      (system "echo -n '('; ocamlfind query -i-format js_of_ocaml; echo -n ')'"))))
 
 (env
  (_
