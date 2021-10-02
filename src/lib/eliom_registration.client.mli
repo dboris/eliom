@@ -80,7 +80,7 @@ module Redirection : Eliom_registration_sigs.S_poly_with_send
          [ `MovedPermanently
          | `Found
          | `SeeOther
-         | `NotNodifed
+         | `NotModified
          | `UseProxy
          | `TemporaryRedirect ]
    and type 'a return = Eliom_service.non_ocaml

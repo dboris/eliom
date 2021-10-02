@@ -282,7 +282,7 @@ module Redirection = struct
     [ `MovedPermanently
     | `Found
     | `SeeOther
-    | `NotNodifed
+    | `NotModified
     | `UseProxy
     | `TemporaryRedirect ]
 

@@ -258,7 +258,7 @@ type _ redirection =
     - [`MovedPermanently] to return [301 Moved Permanently].
     - [`Found] to return [302 Found].
     - [`SeeOther] to return [303 See Other].
-    - [`NotNodifed] to return [304 Not Modified].
+    - [`NotModified] to return [304 Not Modified].
     - [`UseProxy] to return [305 Use Proxy].
     - [`TemporaryRedirect] to return [307 Temporary Redirect]. *)
 module Redirection : sig
@@ -269,7 +269,7 @@ module Redirection : sig
            [ `MovedPermanently
            | `Found
            | `SeeOther
-           | `NotNodifed
+           | `NotModified
            | `UseProxy
            | `TemporaryRedirect ]
      and type 'a return = 'a
@@ -301,7 +301,7 @@ module String_redirection : Eliom_registration_sigs.S_with_create
          [ `MovedPermanently
          | `Found
          | `SeeOther
-         | `NotNodifed
+         | `NotModified
          | `UseProxy
          | `TemporaryRedirect ]
    and type return = Eliom_service.non_ocaml

@@ -1409,7 +1409,7 @@ type redirection_options =
   [ `MovedPermanently
   | `Found
   | `SeeOther
-  | `NotNodifed
+  | `NotModified
   | `UseProxy
   | `TemporaryRedirect
   ]
@@ -1423,7 +1423,7 @@ let status_of_redirection_options options code =
     | `MovedPermanently -> `Moved_permanently
     | `Found -> `Found
     | `SeeOther -> `See_other
-    | `NotNodifed -> `Not_modified
+    | `NotModified -> `Not_modified
     | `UseProxy -> `Use_proxy
     | `TemporaryRedirect -> `Temporary_redirect
 
